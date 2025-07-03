@@ -2,6 +2,7 @@ function criaCalculadora() {
     return {
         display: document.querySelector('.display'),
         btnClear: document.querySelector('.btn-clear'),
+        btnDel : document.querySelector('.btn-del'),
 
         clearDisplay() {
             this.display.value = '';
@@ -9,6 +10,9 @@ function criaCalculadora() {
 
         inicia() {
             this.cliqueBotoes();
+        },
+        apagarUm(){
+         this.display.value = this.display.value.slice(0,-1)
         },
 
         cliqueBotoes() {
@@ -21,6 +25,10 @@ function criaCalculadora() {
 
                 if (el.classList.contains('btn-clear')) {
                     this.clearDisplay();
+                }
+                if(el.classList.contains('btn-del')){
+                    this.apagarUm();
+
                 }
             });
         },
