@@ -1,24 +1,33 @@
-function criaCalculadora(){
+function criaCalculadora() {
     return {
+        display: document.querySelector('.display'),
+        btnClear: document.querySelector('.btn-clear'),
 
-        display:document.querySelector( '.display'),
-
-        inicia(){
-            alert('oi iniciei')
+        clearDisplay() {
+            this.display.value = '';
         },
-        cliqueBotoes(){
-            document.addEventListener('click',function(e){
-                const  el = e.target;
 
-                if(el.classList.contains('btn-num')){
-                    this.btnParaDisplay();
+        inicia() {
+            this.cliqueBotoes();
+        },
+
+        cliqueBotoes() {
+            document.addEventListener('click', e => {
+                const el = e.target;
+
+                if (el.classList.contains('btn-num')) {
+                    this.btnParaDisplay(el.innerText);
                 }
-            }.bind(this))
-        },
-        btnParaDisplay(){
 
+                if (el.classList.contains('btn-clear')) {
+                    this.clearDisplay();
+                }
+            });
+        },
+
+        btnParaDisplay(valor) {
+            this.display.value += valor;
         }
-        
     };
 }
 
