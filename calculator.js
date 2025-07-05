@@ -41,3 +41,21 @@ function criaCalculadora() {
 
 const calculadora = criaCalculadora();
 calculadora.inicia();
+
+
+//funcoes construtoras
+
+function Pessoa(nome,sobrenome){
+    this.nome = nome
+    this.sobrenome = sobrenome
+
+    this.metodo = function(){
+        console.log(this.nome +' é um método' + this.sobrenome)
+    }
+
+}
+
+const p1 = new Pessoa('maria','joaquina')
+const p2 = new Pessoa('paulo','ricardo')
+p1.metodo()
+p2.metodo()
