@@ -28,5 +28,7 @@ function Calcularora (){
         
     }
 
+    const e1 = 1;
+
     const calculadora = new Calcularora();
     calculadora.inicia();
